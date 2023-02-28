@@ -1,0 +1,88 @@
+<!--
+//
+//  MICROCONTROLADOR ESP32 MONITOREO INVERSOR SOLAR AXPERT 3KV
+//  AUTOR: ANTONIO MOLINA BRAVO
+//  
+//  FASE 1: COMUNICACION ESP32/INVERTER
+//  FASE 2: SECUENCIA DE COMANDOS
+//  FASE 3: ENVIO DATOS VIA WEB SERVER ASINCRONO
+//  FASE 4: DATA LOGGER
+//  FASE 5: ANALISIS DE DATOS
+//  FASE 6: INCORPORAR MEDICIONES INDEPENDIENTES O EXTERNAS AL INVERTER
+//  FASE 7: TOMA DE DESICION AUTONOMA Y CAMBIO DE PARAMETROS
+//
+//  CAPA HTML 
+//  PAGINA ALMACENADA EN EPROM DEL ESP32
+//  ACTIVA LA SESION DE CONEXION PERMANENTE ENTRE CLIENTE Y SERVIDOR WEB ESP32
+//  BRINDA LA PRESENTACION DE LOS DATOS ENTREGADOS POR EL INVERTER
+//  LOS DATOS SON ENVIADOS A TRAVEZ DEL PUERTO SERIE RS232 POR EL INVERTER BYPASS EL ESP32 Y RENVIADOS VIA WIFI UTILIZANDO HTTP
+//
+-->
+
+<!DOCTYPE HTML><html>
+<head>
+  <title>ESP Inverter Web Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css">
+  <!-- link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.min.js"></script>
+</head>
+<body>
+  <div class="topnav">
+    <h1><i class="fa-solid fa-sun-cloud"></i> AXPERT 3KV <i class="fa-solid fa-solar-panel"></i></h1>
+  </div>
+  <div class="content">
+    <div class="cards">
+      <div class="card">
+        <p class="card-title">UTILITY (IN)</p>
+        <p><span class="reading">Grid voltage: <span id="gridVol"></span> V</span></p>
+        <p><span class="reading">Grid frequency: <span id="gridHz"></span> Hz</span></p>
+      </div>
+      <div class="card">
+        <p class="card-title">SOLAR (IN)</p>
+        <p><span class="reading">PV Input voltage: <span id="pvVol"></span> V</span></p>
+        <p><span class="reading">Y: <span id="accY"></span> ms</span></p>
+        <p><span class="reading">Z: <span id="accZ"></span> ms<sup>2</sup></span></p>
+      </div>
+      <div class="card">
+        <p class="card-title">BATERY (CHARGER)</p>
+        <p><span class="reading">Battery voltage: <span id="batVol"></span> V</span></p>
+        <p><span class="reading">Battery charging current: <span id="batChgAmp"></span> A</span></p>
+        <p><span class="reading">Battery capacity: <span id="batCap"></span> %</span></p>
+        <p><span class="reading">PV Input current for battery: <span id="pvBatAmp"></span> A</span></p>
+        <p><span class="reading">Battery voltage from SCC: <span id="batVolSCC"></span> V</span></p>
+        <p><span class="reading">Battery discharge current: <span id="batDisAmp"></span> A</span></p>
+      </div>
+      <div class="card">
+        <p class="card-title">INVERTER (OUT)</p>
+        <p><span class="reading">AC output voltage: <span id="invVol"></span> V</span></p>
+        <p><span class="reading">AC output frequency: <span id="invHz"></span> Hz</span></p>
+        <p><span class="reading">AC output apparent power: <span id="invVA"></span> VA</span></p>
+        <p><span class="reading">AC output active power: <span id="invWtt"></span> W</span></p>
+        <p><span class="reading">Output load percent: <span id="invPorc"></span> %</span></p>
+        <p><span class="reading">BUS voltage: <span id="busVol"></span> %</span></p>
+        <p><span class="reading">Inverter heat sink temperature: <span id="invTemp"></span> %</span></p>
+      </div>
+
+      <div class="card">
+        <p class="card-title">COMMANDS</p>
+        <p><span class="reading"><span id="temp"></span> &deg;C</span></p>
+        <button id="reset" onclick="resetPosition(this)">RESET POSITION</button>
+        <button id="resetX" onclick="resetPosition(this)">X</button>
+        <button id="resetY" onclick="resetPosition(this)">Y</button>
+        <button id="resetZ" onclick="resetPosition(this)">Z</button>
+		<button id="setTime" onclick="sendCmd(this.id, Date.now())">Set Time</button>
+		<button id="serial" onclick="resetPosition(this)">SERIAL</button>		
+      </div>
+
+      <div class="card">
+        <p class="card-title">STATUS & DEBUG</p>
+        <p><span class="reading"><span id="outdebug"></span> texto debug </span></p>
+      </div>
+    </div>
+  </div>
+<script src="inverter.js"></script>
+</body>
+</html>
