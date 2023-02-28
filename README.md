@@ -2,7 +2,7 @@
 Solucion para monitorear Inversor MPPT con Internet de las Cosas utilizando un ESP32 offline (solo LAN) o con Internet
 
 
-Hace algunos años compre un Inversor MPPT AXpert de 3KV, este venia con un software hecho en JAVA muy malo, limitado, acumulaba datos solo cuando estaba conectado y no habia posibilidad de trabajar con los datos si no eran exportados por pequeños bloques
+Hace algunos años compre un Inversor MPPT AXpert de 3KV, este venia con un software hecho en JAVA muy malo, limitado, solo para PC por cable usb de impresora (inmaginense el MPPT en el patio y el PC haciendole compañia todo el dia), acumulaba datos solo cuando estaba conectado y no habia posibilidad de trabajar con los datos si no eran exportados por pequeños bloques
 
 Desilucionante para un equipo caro que prometia mucho, en si, me inmagino a la gran mayoria de los usuarios haciendo uso de estos equipos sin obtener mas retroalimentacion que la que indica la pantalla del panel y unos pocos usuarios gastando una gran cantidad de dinero comprando una solucion intermedia que tambien debe tener sus condiciones y limitaciones, nada que te permita obtener la informacion que requieras y como la quieras
 
