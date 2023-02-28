@@ -6,6 +6,8 @@ Hace algunos años compre un Inversor MPPT AXpert de 3KV, este venia con un soft
 
 Desilucionante para un equipo caro que prometia mucho, en si, me inmagino a la gran mayoria de los usuarios haciendo uso de estos equipos sin obtener mas retroalimentacion que la que indica la pantalla del panel y unos pocos usuarios gastando una gran cantidad de dinero comprando una solucion intermedia que tambien debe tener sus condiciones y limitaciones, nada que te permita obtener la informacion que requieras y como la quieras
 
+Desempleado, con tiempo, el conocimiento, el equipo a mi disposicion y la idea en la cabeza ...
+
 Por esta razon dedique tiempo en desarrollar una solucion practica que hisiera todo lo que se me ocurriera, acumulara datos para post analisis, presentara informacion en directo de lo que estaba ocurriendo, pudiera ser util para analisis inmediato de datos anteriores y comparaciones graficas, etc... un mundo de ideas como que funcionara standalone sin Internet, como en una situacion offgrid real y que pudiera trabajar tambien con internet y aprovechar la capacidad de almacenamiento y computo de un servidor free
 
 En resumen para no latear, lo logre, pero se perdio todo cuando el proveedor de servicio decidio borrar mi cuenta, no se las razones, ocupaba poco recurso y espacio, lo malo es que no solo se perdieron los datos, sino tambien las ultimas modificaciones que por razones de mobilidad se realizaron unicamente en el servidor y no las descargue 
